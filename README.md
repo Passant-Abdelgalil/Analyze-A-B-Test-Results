@@ -14,13 +14,13 @@ For this project, we will be working to understand the results of an A/B test ru
 ### Hypothesis Test:
 we assume that the old page is better unless the new page proves to be definitely better at a Type I error rate of 5%
 
-1. The null hypothesis is :  **$p_{new}$** <= **$p_{old}$**
-* means: the conversion rate to the old page is greater or equal to the conversion rate to new page
+1. The null hypothesis is : **p<sub>new</sub> <= p<sub>old</sub>**
+    * means: the conversion rate to the old page is greater or equal to the conversion rate to new page
 
-2. The Alternative hypothesis is : **$p_{new}$** > **$p_{old}$**
-* means: the conversion rate to the new page is greater than the conversion rate to the old page
+2. The Alternative hypothesis is : **p<sub>new</sub> > p<sub>old</sub>**
+    * means: the conversion rate to the new page is greater than the conversion rate to the old page
 
-** Results**:
+**Results**:
   * we found that the p-value is large `0.9` then we shouldn't move away from the null hypothesis. that is we **failed to reject** the null hypothesis.
 
 ### Regression Approach:
@@ -30,8 +30,9 @@ Since each row is either a conversion or no conversion, so we perform **logistic
 **Steps**:
   1. we create a new column ab_page and encoded it to have 1 when an individual receives the treatment.
   2. we add a new column , the intercept which is neccessary to the model.
-  `Note` According to point 1, the null hypothesis is that the probability of conversion when an individual recieves the new page is less than the probability when an individual recieves the old page **$p_{new}$** > **$p_{old}$**, which is the opposite to the one in the Hypothesis Test.
+  `Note` According to point 1, the null hypothesis is that the probability of conversion when an individual recieves the new page is less than the probability when an individual recieves the old page **p<sub>new</sub> > p<sub>old</sub>**, which is the opposite to the one in the Hypothesis Test.
   
 **Results**:
   * the p-value associated with ab_page is 0.19  
   * since the p-values is small we can reject the null hypothesis here which is the opposite to the one in **Hypothesis Test part**
+  
